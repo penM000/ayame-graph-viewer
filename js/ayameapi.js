@@ -1,4 +1,4 @@
-
+var GLOBAL_GRAPH ;
 function graph_drawing() {
     var pageid = document.getElementById("pageid").value;
     var start_date = document.getElementById("start_date").value;
@@ -13,6 +13,7 @@ function graph_drawing() {
 
 
 function get_rate_from_id(id,start,stop){
+    console.log('https://ayameapi.yukkuriikouze.com/get_rate_from_id_during_the_period?_id='+id+'&start='+start+'&stop='+stop)
     return fetch('https://ayameapi.yukkuriikouze.com/get_rate_from_id_during_the_period?_id='+id+'&start='+start+'&stop='+stop, {
         method: "GET",
     })
@@ -28,7 +29,8 @@ function get_rate_from_id(id,start,stop){
 }
 
 function get_rate_from_fullname(id,start,stop){
-    return fetch('https://ayameapi.yukkuriikouze.com/get_rate_from_fullname_during_the_period?_id='+id+'&start='+start+'&stop='+stop, {
+    console.log('https://ayameapi.yukkuriikouze.com/get_rate_from_fullname_during_the_period?fullname='+id+'&start='+start+'&stop='+stop)
+    return fetch('https://ayameapi.yukkuriikouze.com/get_rate_from_fullname_during_the_period?fullname='+id+'&start='+start+'&stop='+stop, {
         method: "GET",
     })
     .then(response => {
@@ -74,6 +76,12 @@ function wait_get_rate_from_fullname(id,start,stop){
     })();
 }
 function make_graf(label,data,dates){
+    try{
+        GLOBAL_GRAPH.destroy();
+    }
+    catch(e){
+        
+    }
      // X軸に使う日付
     let labels = dates;
     // Y軸に使う何かしらの数値
@@ -104,5 +112,6 @@ function make_graf(label,data,dates){
     };
     var canvas = document.getElementById('stage');
     var chart = new Chart(canvas, config);
+    GLOBAL_GRAPH =chart;
     return chart;
 }
