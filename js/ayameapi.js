@@ -1,5 +1,50 @@
-var GLOBAL_GRAPH ;
-function graph_drawing() {
+
+
+jQuery(function(){
+    jQuery('#metatitle').autocomplete({
+        source: function( req, res ) {
+            jQuery.ajax({
+                url: "https://ayameapi.yukkuriikouze.com/get_metatitle_search?limit=10&metatitle=" + encodeURIComponent(req.term),
+                dataType: "json",
+                success: function( data ) {
+                    res(data);
+                }
+            });
+        },
+        autoFocus: true,
+        delay: 100,
+    });
+});
+
+function get_id_from_metatitle(metatitle){
+    console.log('https://ayameapi.yukkuriikouze.com/get_id_from_metatitle?metatitle='+encodeURIComponent(metatitle))
+    return fetch('https://ayameapi.yukkuriikouze.com/get_id_from_metatitle?metatitle='+encodeURIComponent(metatitle), {
+        method: "GET",
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(json => {
+        return json;
+    })
+    .catch(e => {
+        console.error(e);
+    });
+}
+
+function wait_get_rate_from_id(id,start,stop){
+    const waitAsynchronousFunc = (async() => {
+        var ratedata=[];
+        Object.keys(result).forEach(function (key) {
+            ratedata.unshift(result[key]["rating"]);
+            datelabels.unshift(key);
+        });
+        console.log(datelabels);
+        console.log(ratedata);
+        make_graf(id,ratedata,datelabels)
+    })();
+}
+function graph_drawing2() {
     var pageid = document.getElementById("pageid").value;
     var start_date = document.getElementById("start_date").value;
     var stop_date = document.getElementById("stop_date").value;
@@ -9,6 +54,23 @@ function graph_drawing() {
         wait_get_rate_from_id(pageid,start_date,stop_date);
     }
 }
+
+function graph_drawing(){
+    const waitAsynchronousFunc = (async() => {
+        var metatitle = document.getElementById("metatitle").value;
+        var start_date = document.getElementById("start_date").value;
+        var stop_date = document.getElementById("stop_date").value;
+        const pageid = await get_id_from_metatitle(metatitle);
+        console.log(pageid["id"]);
+        wait_get_rate_from_id(pageid["id"],start_date,stop_date);
+    })();
+
+}
+
+
+
+var GLOBAL_GRAPH ;
+
 
 
 
@@ -43,6 +105,10 @@ function get_rate_from_fullname(id,start,stop){
         console.error(e);
     });
 }
+
+
+
+
 
 function wait_get_rate_from_id(id,start,stop){
     const waitAsynchronousFunc = (async() => {
