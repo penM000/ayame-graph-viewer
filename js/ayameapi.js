@@ -1,3 +1,11 @@
+jQuery(document).ready(function() {
+    var date = new Date();
+    document.getElementById("stop_date").value = date_to_str(date) ;
+    date.setMonth(date.getMonth() - 6);
+    document.getElementById("start_date").value = date_to_str(date);
+    moment.locale("ja");
+    // 〜処理〜
+});
 
 
 jQuery(function(){
@@ -15,6 +23,11 @@ jQuery(function(){
         delay: 100,
     });
 });
+function date_to_str(date){
+    return date.getFullYear() + "-" 
+        + ( "0" + ( date.getMonth() + 1) ).slice(-2) + "-"
+        + ( "0" + ( date.getDate() ) ).slice(-2) ;
+}
 
 function get_id_from_metatitle(metatitle){
     console.log('https://ayameapi.yukkuriikouze.com/get_id_from_metatitle?metatitle='+encodeURIComponent(metatitle))
@@ -170,7 +183,10 @@ function make_graf(label,data,dates){
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: 'day'
+                        unit: 'day',
+                        displayFormats: {
+                            day: 'MM/DD'
+                        }
                     }
                 }]
             }
