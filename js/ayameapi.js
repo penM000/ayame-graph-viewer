@@ -225,8 +225,6 @@ function make_graf(label,data,dates){
             }
         }
     };
-    var w = $('.contents').width();
-    var h = $('.contents').height();
     $('#stage').attr('width', w);
     $('#stage').attr('height', h);
     var canvas = document.getElementById('stage');
@@ -235,14 +233,3 @@ function make_graf(label,data,dates){
     return chart;
 }
 
-
-$(window).resize(function() {
-    var w = $('.contents').width();
-    var h = $('.contents').height();
-    $('#stage').attr('width', w);
-    $('#stage').attr('height', h);
-});
-$(document).ready(function() {
-
-   
-});
