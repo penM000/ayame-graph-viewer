@@ -225,8 +225,6 @@ function make_graf(label,data,dates){
             }
         }
     };
-    $('#stage').attr('width', w);
-    $('#stage').attr('height', h);
     var canvas = document.getElementById('stage');
     var chart = new Chart(canvas, config);
     GLOBAL_GRAPH =chart;
