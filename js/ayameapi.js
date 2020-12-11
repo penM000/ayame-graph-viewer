@@ -22,6 +22,19 @@ jQuery(function(){
         autoFocus: true,
         delay: 100,
     });
+    jQuery('#fullname').autocomplete({
+        source: function( req, res ) {
+            jQuery.ajax({
+                url: "https://ayameapi.yukkuriikouze.com/get_fullname_search?limit=10&fullname=" + encodeURIComponent(req.term),
+                dataType: "json",
+                success: function( data ) {
+                    res(data);
+                }
+            });
+        },
+        autoFocus: true,
+        delay: 100,
+    });
 });
 function date_to_str(date){
     return date.getFullYear() + "-" 
@@ -29,9 +42,24 @@ function date_to_str(date){
         + ( "0" + ( date.getDate() ) ).slice(-2) ;
 }
 
-function get_id_from_metatitle(metatitle){
-    console.log('https://ayameapi.yukkuriikouze.com/get_id_from_metatitle?metatitle='+encodeURIComponent(metatitle))
-    return fetch('https://ayameapi.yukkuriikouze.com/get_id_from_metatitle?metatitle='+encodeURIComponent(metatitle), {
+function get_id_from_key(mainkey,key){
+    console.log("https://ayameapi.yukkuriikouze.com/get_id_from_"+mainkey+"?"+mainkey+"="+encodeURIComponent(key))
+    return fetch("https://ayameapi.yukkuriikouze.com/get_id_from_"+mainkey+"?"+mainkey+"="+encodeURIComponent(key), {
+        method: "GET",
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(json => {
+        return json;
+    })
+    .catch(e => {
+        console.error(e);
+    });
+}
+function get_json_from_id(id){
+    console.log("https://ayameapi.yukkuriikouze.com/get_latest_data_from_id?_id="+encodeURIComponent(id))
+    return fetch("https://ayameapi.yukkuriikouze.com/get_latest_data_from_id?_id="+encodeURIComponent(id), {
         method: "GET",
     })
     .then(response => {
@@ -54,7 +82,7 @@ function wait_get_rate_from_id(id,start,stop){
         });
         console.log(datelabels);
         console.log(ratedata);
-        make_graf(id,ratedata,datelabels)
+        make_graf(id,ratedata,datelabels);
     })();
 }
 function graph_drawing2() {
@@ -68,17 +96,22 @@ function graph_drawing2() {
     }
 }
 
-function graph_drawing(){
+function graph_drawing(mainkey){
     const waitAsynchronousFunc = (async() => {
-        var metatitle = document.getElementById("metatitle").value;
+        var key = document.getElementById(mainkey).value;
         var start_date = document.getElementById("start_date").value;
         var stop_date = document.getElementById("stop_date").value;
-        const pageid = await get_id_from_metatitle(metatitle);
+        const pageid = await get_id_from_key(mainkey,key);
         console.log(pageid["id"]);
         wait_get_rate_from_id(pageid["id"],start_date,stop_date);
+        var json = await get_json_from_id(pageid["id"]);
+        console.log(json["tags"]);
+        document.getElementById('json-viewer').innerHTML="タグ:"+json["tags"];
     })();
 
 }
+
+
 
 
 
@@ -192,8 +225,24 @@ function make_graf(label,data,dates){
             }
         }
     };
+    var w = $('.contents').width();
+    var h = $('.contents').height();
+    $('#stage').attr('width', w);
+    $('#stage').attr('height', h);
     var canvas = document.getElementById('stage');
     var chart = new Chart(canvas, config);
     GLOBAL_GRAPH =chart;
     return chart;
 }
+
+
+$(window).resize(function() {
+    var w = $('.contents').width();
+    var h = $('.contents').height();
+    $('#stage').attr('width', w);
+    $('#stage').attr('height', h);
+});
+$(document).ready(function() {
+
+   
+});
