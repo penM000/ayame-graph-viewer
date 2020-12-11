@@ -211,6 +211,7 @@ function make_graf(label,data,dates){
                 data: values
             }],
         },
+        responsive:false,
         options: {
             scales: {
                 xAxes: [{
