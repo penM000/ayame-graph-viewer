@@ -1,3 +1,7 @@
+#search_area{
+    height: 50vh;
+}
+
 .search_box{
     display: block;
     width: 80%;
