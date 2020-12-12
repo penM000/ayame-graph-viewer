@@ -14,10 +14,12 @@
     outline: 0;
 }
 
-#attention{
+.attention{
     display: none;
+    color: #FFF;
+    text-align: center;
 }
 
-.search_box:focus ~ #attention{
+.search_box:focus ~ .attention{
     display: block;
 }
