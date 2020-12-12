@@ -15,11 +15,13 @@
 }
 
 .attention{
-    display: none;
+    opacity: 0;
     color: #FFF;
     text-align: center;
+    transition: all 0.5s ease-out;
+    user-select: none;
 }
 
 .search_box:focus ~ .attention{
-    display: block;
+    opacity: 1;
 }
