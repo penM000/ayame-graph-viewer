@@ -18,6 +18,7 @@
     border-radius: 200px;
     background-image: url(../img/scp-logo.svg);
     background-size: contain;
+    filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
 }
 
 .header h1{
