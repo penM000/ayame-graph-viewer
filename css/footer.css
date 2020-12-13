@@ -10,9 +10,10 @@
 .footer_item{
     color: #FFF;
     font-weight: bold;
-    margin: 20px;
+    width: 30%;
+    text-align: center;
 }
 
 #information{
-    
+
 }
