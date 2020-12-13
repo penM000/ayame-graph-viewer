@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+    <defs>
+        <style>
+            .cover {
+                fill: #0affd2;
+                stroke: #000;
+                stroke-miterlimit: 10;
+                opacity: 0;
+            }
+
+            #Outer {
+                animation-name: outer;
+                animation-duration: 24s;
+                animation-timing-function: linear;
+                animation-delay: 0s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+                animation-fill-mode: forwards;
+                animation-play-state: running;
+                transform-origin: 250px 250px;
+            }
+
+            @keyframes outer {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            #Inner {
+                animation-name: inner;
+                animation-duration: 24s;
+                animation-timing-function: ease-in-out;
+                animation-delay: 0s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+                animation-fill-mode: forwards;
+                animation-play-state: running;
+                transform-origin: 250px 250px;
+            }
+
+            @keyframes inner {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                12.5% {
+                    transform: rotate(0deg);
+                }
+
+                16.6% {
+                    transform: rotate(60deg);
+                }
+
+                29.1% {
+                    transform: rotate(60deg);
+                }
+
+                33.3% {
+                    transform: rotate(120deg);
+                }
+
+                45.8% {
+                    transform: rotate(120deg);
+                }
+
+                49.9% {
+                    transform: rotate(180deg);
+                }
+
+                62.4% {
+                    transform: rotate(180deg);
+                }
+
+                66.6% {
+                    transform: rotate(240deg);
+                }
+
+                79.1% {
+                    transform: rotate(240deg);
+                }
+
+                83.2% {
+                    transform: rotate(300deg);
+                }
+
+                95.7% {
+                    transform: rotate(300deg);
+                }
+
+                99.9% {
+                    transform: rotate(360deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+        </style>
+    </defs>
+    <title>origin-1</title>
+    <g id="cover" data-name="cover">
+        <rect class="cover" x="0.5" y="0.5" width="500" height="500" />
+    </g>
+    <g id="Inner">
+        <path id="Round-Inner" d="M250,116.519A131.768,131.768,0,1,0,381.768,248.287,131.769,131.769,0,0,0,250,116.519Zm0,239.619A107.851,107.851,0,1,1,357.851,248.287,107.85,107.85,0,0,1,250,356.138Z" transform="translate(0.5 0.5)" />
+        <polygon id="Arrow-Right" points="303.743 288.227 383.652 334.363 391.764 320.313 311.854 274.177 320.903 258.139 262.284 255.393 293.972 304.785 303.743 288.227" />
+        <polygon id="Arrow-Left" points="189.552 274.879 109.642 321.015 117.754 335.065 197.663 288.929 207.028 304.785 238.716 255.393 180.097 258.139 189.552 274.879" />
+        <polygon id="Arrow-Top" points="258.206 182.928 258.206 90.657 241.982 90.657 241.982 182.928 223.569 183.111 250.5 235.249 277.431 183.111 258.206 182.928" />
+    </g>
+    <g id="Outer">
+        <polygon id="Square-RIght" points="435.283 279.028 461.085 303.197 406.168 397.943 373.354 388.003 377.167 400.457 410.021 413.341 475.504 299.959 448.247 273.686 435.283 279.028" />
+        <polygon id="Square-Left" points="65.73 279.038 39.928 303.207 94.845 397.953 127.659 388.013 123.846 400.467 90.992 412.351 25.509 298.968 52.766 273.695 65.73 279.038" />
+        <polygon id="Square-Top" points="312.069 68.844 304.129 34.367 194.579 34.367 188.407 69.027 177.565 60.284 184.034 23.821 315.08 23.821 323.493 60.299 312.069 68.844" />
+        <path id="Round-RIght" d="M445.072,288.166a200.33,200.33,0,0,0,4.552-42.51c0-89.929-59.47-165.96-141.224-190.935l3.169,13.623h-.037A187.9,187.9,0,0,1,434.768,278.555l.015-.027Z" transform="translate(0.5 0.5)" />
+        <path id="Round-Bot" d="M372.862,387.489a187.653,187.653,0,0,1-245.71.012v0l-13.378,4.052a199.572,199.572,0,0,0,272.452,0L372.854,387.5Z" transform="translate(0.5 0.5)" />
+        <path id="Round-Left" d="M65.23,278.538A187.9,187.9,0,0,1,187.948,68.527h-.041L190.3,55.119A199.831,199.831,0,0,0,54.93,288.171l10.294-9.643Z" transform="translate(0.5 0.5)" />
+    </g>
+</svg>
