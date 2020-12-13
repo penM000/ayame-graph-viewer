@@ -2,3 +2,9 @@
     height: 100px;
     background: #000;
 }
+
+.footer_item{
+    color: #FFF;
+    font-weight: bold;
+    margin: 20px;
+}
