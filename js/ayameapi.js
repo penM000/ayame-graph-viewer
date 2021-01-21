@@ -211,6 +211,7 @@ function make_graf(label,data,dates){
                 data: values
             }],
         },
+        responsive:false,
         options: {
             scales: {
                 xAxes: [{
@@ -225,24 +226,9 @@ function make_graf(label,data,dates){
             }
         }
     };
-    var w = $('.contents').width();
-    var h = $('.contents').height();
-    $('#stage').attr('width', w);
-    $('#stage').attr('height', h);
     var canvas = document.getElementById('stage');
     var chart = new Chart(canvas, config);
     GLOBAL_GRAPH =chart;
     return chart;
 }
 
-
-$(window).resize(function() {
-    var w = $('.contents').width();
-    var h = $('.contents').height();
-    $('#stage').attr('width', w);
-    $('#stage').attr('height', h);
-});
-$(document).ready(function() {
-
-   
-});
