@@ -46,7 +46,10 @@
     top: 0;
     left: 0;
     background-image: url(../img/change.png);
-    background-size: contain;
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+    background-position: 8px 5px;
+    cursor: pointer;
 }
 
 #search_mode{

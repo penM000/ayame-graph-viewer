@@ -15,3 +15,14 @@ function checkFocus(){
     }
 }
 setInterval(checkFocus, 300);
+
+var mode_change_btn = document.getElementById("mode_change");
+var mode_change = function(){
+    var fullname = document.getElementById("fullname");
+    var metatitle = document.getElementById("metatitle");
+
+    fullname.classList.toggle("display_none");
+    metatitle.classList.toggle("display_none");
+}
+
+mode_change_btn.onclick 
