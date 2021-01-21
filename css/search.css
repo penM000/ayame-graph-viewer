@@ -51,6 +51,7 @@
     background-repeat: no-repeat;
     background-position: 8px 5px;
     cursor: pointer;
+    user-select: none;
 }
 
 #search_mode{
@@ -73,4 +74,5 @@
     background-repeat: no-repeat;
     background-position: 7px 6px;
     cursor: pointer;
+    user-select: none;
 }

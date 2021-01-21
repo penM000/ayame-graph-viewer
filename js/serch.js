@@ -25,4 +25,18 @@ var mode_change = function(){
     metatitle.classList.toggle("display_none");
 }
 
+var search_btn = document.getElementById("search_btn");
+var search = function(){
+    var fullname = document.getElementById("fullname_mode");
+    var metatitle = document.getElementById("metatitle_mode");
+    if (metatitle.classList.contains("display_none")){
+        console.log(fullname.value)
+        window.location = "/chart.html?fullname="+encodeURIComponent(fullname.value);
+    }
+    else{
+        window.location = "/chart.html?metatitle="+encodeURIComponent(metatitle.value);
+    }
+}
+
 mode_change_btn.onclick = mode_change;
+search_btn.onclick = search;
