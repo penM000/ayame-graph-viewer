@@ -18,8 +18,8 @@ setInterval(checkFocus, 300);
 
 var mode_change_btn = document.getElementById("mode_change");
 var mode_change = function(){
-    var fullname = document.getElementById("fullname");
-    var metatitle = document.getElementById("metatitle");
+    var fullname = document.getElementById("fullname_mode");
+    var metatitle = document.getElementById("metatitle_mode");
 
     fullname.classList.toggle("display_none");
     metatitle.classList.toggle("display_none");
