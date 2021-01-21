@@ -25,4 +25,4 @@ var mode_change = function(){
     metatitle.classList.toggle("display_none");
 }
 
-mode_change_btn.onclick 
+mode_change_btn.onclick = mode_change;
