@@ -4,11 +4,10 @@
 
 .search_box{
     display: block;
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
+    width: calc(100% - 45px);
+    margin-left: 45px;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 0px 20px 20px 0px;
     border: 0;
     font-size: 18px;
 }
@@ -26,10 +25,6 @@
     user-select: none;
 }
 
-.search_box:focus ~ .attention{
-    opacity: 1;
-}
-
 .display_none{
     display: none;
 }
@@ -40,4 +35,23 @@
 
 .display_off{
     opacity: 0;
+}
+
+#mode_change{
+    width: 41px;
+    height: 41px;
+    background: #fbfbfb;
+    border-radius: 20px 0px 0px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../img/change.png);
+    background-size: contain;
+}
+
+#search_mode{
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
 }
