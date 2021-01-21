@@ -31,10 +31,10 @@ var search = function(){
     var metatitle = document.getElementById("metatitle_mode");
     if (metatitle.classList.contains("display_none")){
         console.log(fullname.value)
-        window.location = "/chart.html?fullname="+encodeURIComponent(fullname.value);
+        window.location = "./chart.html?fullname="+encodeURIComponent(fullname.value);
     }
     else{
-        window.location = "/chart.html?metatitle="+encodeURIComponent(metatitle.value);
+        window.location = "./chart.html?metatitle="+encodeURIComponent(metatitle.value);
     }
 }
 
