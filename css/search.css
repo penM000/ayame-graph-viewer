@@ -69,8 +69,8 @@
     top: 3px;
     right: 3px;
     background-image: url(../img/serch.png);
-    background-size: 29px auto;
+    background-size: 21px auto;
     background-repeat: no-repeat;
-    background-position: 3px 3px;
+    background-position: 7px 7px;
     cursor: pointer;
 }
